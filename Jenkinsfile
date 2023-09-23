@@ -1,7 +1,8 @@
 pipeline {
     agent any
     triggers {
-        githubPush()
+        //githubPush()
+        githubPush branches: "develop"
     }
     stages {
         stage('Checkout') {
@@ -10,10 +11,10 @@ pipeline {
                 checkout scm
             }
         }
-        stage('jenking-assignment-1') {
+        stage('Copy Files') {
             steps {
-                // Invoking job here
-                build job: 'jenking-assignment-1'
+                // Run the deploy.sh script to copy files
+                sh '/var/myscripts/deploy.sh'
             }
         }
     }
