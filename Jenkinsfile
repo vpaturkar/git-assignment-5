@@ -8,10 +8,10 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Copy Files') {
+        stage('jenking-assignment-1') {
             steps {
-                // Run the deploy.sh script to copy files
-                sh './deploy.sh'
+                // Invoking job here
+                build job: 'jenking-assignment-1'
             }
         }
     }
